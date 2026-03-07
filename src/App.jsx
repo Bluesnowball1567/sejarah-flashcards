@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, Check, X, ArrowLeft, RotateCcw, Trophy, Home, Loader2 } from 'lucide-react';
+import tailwindcss from '@tailwindcss/vite'
 
 const SYLLABUS = {
   form4: {
