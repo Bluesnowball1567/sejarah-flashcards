@@ -32,11 +32,12 @@ const App = () => {
   const [showAnswer, setShowAnswer] = useState(false);
   const [scores, setScores] = useState([]); 
 
-  
+
 useEffect(() => {
   const loadData = async () => {
     try {
       // 使用 import.meta.env.BASE_URL 自动获取 '/sejarah-flashcards/'
+      // 这样无论是在本地还是 GitHub Pages 都能准确找到文件
       const jsonPath = `${import.meta.env.BASE_URL}data.json`;
       
       const response = await fetch(jsonPath);
@@ -44,7 +45,7 @@ useEffect(() => {
       const dataJson = await response.json();
       setQuestionsDb(dataJson);
     } catch (err) {
-      console.error("无法加载题目文件:", err); // 这就是你控制台看到的报错位置
+      console.error("无法加载题目文件，请检查 public/data.json 是否存在:", err);
       setQuestionsDb({});
     } finally {
       setIsLoading(false);
